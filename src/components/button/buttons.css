@@ -1,0 +1,35 @@
+button {
+  background-color: #141414;
+  color: #fff;
+  padding: 1rem 3rem;
+  margin: 2rem 0;
+  cursor: pointer;
+  min-width: 210px;
+  font-size: 16px;
+  border: none;
+  transition: background 0.2s ease, color 0.3s ease;
+}
+
+button.inverted {
+  background-color: #fff;
+  color: #141414;
+  border: 1px solid #141414;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button.turo {
+  background-color: #59d388;
+  color: #fff;
+  font-family: "Nitti Grotesk", "Roboto", sans-serif;
+}
+
+button.turo.inverted {
+  border: 1px solid #59d388;
+  background-color: #fff;
+  color: #59d388;
+  font-family: "Nitti Grotesk", "Roboto", sans-serif;
+}

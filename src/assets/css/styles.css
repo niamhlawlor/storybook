@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: "Nitti Grotesk";
+  src: url("https://assets.andopen.co/1/assets/nitti/NittiGrotesk-Medium-5d9819bc886348c2edf5edeb3b66818dba89f82a045547f3710c20259dd0279b.woff2");
+  font-weight: medium;
+}

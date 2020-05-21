@@ -1,0 +1,14 @@
+div.footer {
+  max-width: 100%;
+  width: 580px;
+  min-height: 100px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  border-top: 1px solid #141414;
+  margin-top: 3rem;
+}
+
+div.footer.turo {
+  border-top: 1px solid #59d388;
+}

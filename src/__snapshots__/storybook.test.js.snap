@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Button Default 1`] = `
+<button
+  className=""
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  Default Button
+</button>
+`;
+
+exports[`Storyshots Button Disabled 1`] = `
+<button
+  className=""
+  disabled={true}
+  onClick={[Function]}
+  type="button"
+>
+  Disabled
+</button>
+`;
+
+exports[`Storyshots Button Turo 1`] = `
+<button
+  className="turo"
+  disabled={false}
+  onClick={[Function]}
+  type="button"
+>
+  A button
+</button>
+`;
