@@ -12,7 +12,9 @@
     "watch:css": "postcss src/assets/css/styles.css -o src/assets/css/main.css",
     "test": "jest --collect-coverage",
     "test:watch": "jest --watch",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook -c .storybook -o .out",
+    "chromatic": "chromatic --project-token=kgc7jg4hcjh"
   },
   "keywords": [
     "react",
@@ -38,13 +40,16 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-reveal": "^1.2.2",
     "sb": "^5.3.18",
     "tailwindcss": "^1.3.4",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-storyshots": "^5.3.18",
+    "@storybook/addon-storysource": "^5.3.19",
     "@storybook/react": "^5.3.18",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.2",

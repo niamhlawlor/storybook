@@ -6,7 +6,7 @@ export default { title: "Footer" };
 
 const actionsData = {
   onSubmit: action("onSubmit"),
-  onCancel: action("onCancle"),
+  onCancel: action("onCancel"),
 };
 
 export const Default = () => <Footer {...actionsData} />;
