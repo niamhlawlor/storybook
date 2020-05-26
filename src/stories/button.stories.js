@@ -9,59 +9,57 @@ import {
   select,
 } from "@storybook/addon-knobs";
 
+const actionsData = {
+  onClick: action("button clicked"),
+  onHover: action("hover detected"),
+};
+
+const knobs = {
+  buttonText: text("Button Text") || "Submit",
+  disabled: boolean("Disabled"),
+  inverted: boolean("Inverted"),
+  size: select("Size", ["small", "medium", "large", "xlarge"]),
+};
+
 export default {
   title: "Button",
   parameters: {
     component: Button,
     componentSubtitle: "Renders &Open Button Component",
+    backgrounds: [
+      { name: "default", value: "#fff", default: true },
+      { name: "twitter", value: "#00aced" },
+      { name: "facebook", value: "#3b5998" },
+    ],
   },
 };
 
-const actionsData = {
-  onClick: action("onClick"),
-};
-
-export const Default = () => (
-  <Button
-    buttonText={text("Button Text") || "Submit"}
-    disabled={boolean("Disabled")}
-    inverted={boolean("Inverted")}
-    size={select("Size", ["small", "medium", "large", "xlarge"])}
-  />
-);
+export const Default = () => <Button {...knobs} {...actionsData} />;
 
 Default.story = {
   decorators: [withKnobs],
+  parameters: {
+    backgrounds: [{ name: "red", value: "rgba(255, 0, 0)" }],
+  },
 };
 
 export const Turo = () => (
-  <Button
-    {...actionsData}
-    tenant={"turo"}
-    buttonText={text("Button Text") || "Button text"}
-    disabled={boolean("Disabled")}
-    inverted={boolean("Inverted")}
-    size={select("Size", ["small", "medium", "large", "xlarge"])}
-  />
+  <Button {...actionsData} {...knobs} tenant={"turo"} />
 );
 
 Turo.story = {
   decorators: [withKnobs],
 };
 
-export const DefaultDisabled = () => <Button buttonText="Disabled" disabled />;
+export const DefaultDisabled = () => (
+  <Button {...actionsData} {...knobs} buttonText="Disabled" disabled />
+);
 export const DefaultInverted = () => (
-  <Button {...actionsData} inverted buttonText={`Click Me`} />
+  <Button {...actionsData} {...knobs} inverted buttonText={`Click Me`} />
 );
 
 export const DefaultAnimated = () => (
-  <Button
-    {...actionsData}
-    buttonText={text("Button Text") || "Button text"}
-    disabled={boolean("Disabled")}
-    inverted={boolean("Inverted")}
-    slide={true}
-  />
+  <Button {...actionsData} {...knobs} slide={true} />
 );
 
 DefaultAnimated.story = {
@@ -69,18 +67,16 @@ DefaultAnimated.story = {
 };
 
 export const TuroInverted = () => (
-  <Button {...actionsData} inverted tenant={"turo"} buttonText={`Click Me`} />
-);
-
-export const BadAccessibility = () => (
   <Button
-    buttonText={text("Button Text") || "Default Button"}
-    disabled={boolean("Disabled")}
-    inverted={boolean("Inverted")}
-    tenant={"bad"}
-    size={select("Size", ["small", "medium", "large", "xlarge"])}
+    {...actionsData}
+    {...knobs}
+    inverted
+    tenant={"turo"}
+    buttonText={`Click Me`}
   />
 );
+
+export const BadAccessibility = () => <Button {...actionsData} {...knobs} />;
 
 BadAccessibility.story = {
   decorators: [withKnobs],

@@ -13,6 +13,7 @@ const Button = ({
   inverted,
   size,
   slide,
+  onHover,
 }) => {
   const buttonSize = size || "medium";
 
@@ -21,6 +22,7 @@ const Button = ({
       <Slide left>
         <button
           onClick={() => onClick()}
+          onMouseOver={() => onHover()}
           disabled={disabled}
           type="button"
           className={`${tenant} ${buttonSize} ${inverted ? "inverted" : ""}`}
@@ -33,6 +35,7 @@ const Button = ({
   return (
     <button
       onClick={() => onClick()}
+      onMouseOver={() => onHover()}
       disabled={disabled}
       type="button"
       className={`${tenant} ${buttonSize} ${inverted ? "inverted" : ""}`}
@@ -46,6 +49,7 @@ Button.propTypes = {
   buttonText: PropTypes.string.isRequired,
   tenant: PropTypes.string,
   onClick: PropTypes.func,
+  onHover: PropTypes.func,
   size: PropTypes.oneOf(["small", "medium", "large", "xlarge"]),
   inverted: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -62,6 +66,7 @@ Button.defaultProps = {
   disabled: false,
   slide: false,
   onClick: () => null,
+  onHover: () => null,
 };
 
 export default Button;
