@@ -9,7 +9,13 @@ import {
   select,
 } from "@storybook/addon-knobs";
 
-export default { title: "Button" };
+export default {
+  title: "Button",
+  parameters: {
+    component: Button,
+    componentSubtitle: "Renders &Open Button Component",
+  },
+};
 
 const actionsData = {
   onClick: action("onClick"),
@@ -17,7 +23,7 @@ const actionsData = {
 
 export const Default = () => (
   <Button
-    buttonText={text("Button Text") || "Default Button"}
+    buttonText={text("Button Text") || "Submit"}
     disabled={boolean("Disabled")}
     inverted={boolean("Inverted")}
     size={select("Size", ["small", "medium", "large", "xlarge"])}
@@ -65,3 +71,17 @@ DefaultAnimated.story = {
 export const TuroInverted = () => (
   <Button {...actionsData} inverted tenant={"turo"} buttonText={`Click Me`} />
 );
+
+export const BadAccessibility = () => (
+  <Button
+    buttonText={text("Button Text") || "Default Button"}
+    disabled={boolean("Disabled")}
+    inverted={boolean("Inverted")}
+    tenant={"bad"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+  />
+);
+
+BadAccessibility.story = {
+  decorators: [withKnobs],
+};

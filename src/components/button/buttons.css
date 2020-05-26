@@ -46,6 +46,11 @@ button.turo {
   font-family: "Nitti Grotesk", "Roboto", sans-serif;
 }
 
+button.bad {
+  background-color: red;
+  color: darkred;
+}
+
 button.turo.inverted {
   border: 1px solid #59d388;
   background-color: #fff;

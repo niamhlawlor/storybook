@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./buttons.css";
 import Slide from "react-reveal/Slide";
-
+/**
+Main platform button component
+**/
 const Button = ({
   buttonText,
   tenant,
@@ -41,13 +43,16 @@ const Button = ({
 };
 
 Button.propTypes = {
-  slide: PropTypes.bool,
-  onClick: PropTypes.func,
-  inverted: PropTypes.bool,
-  disabled: PropTypes.bool,
   buttonText: PropTypes.string.isRequired,
   tenant: PropTypes.string,
-  size: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(["small", "medium", "large", "xlarge"]),
+  inverted: PropTypes.bool,
+  disabled: PropTypes.bool,
+  /**
+    Render with slide animation on load
+    */
+  slide: PropTypes.bool,
 };
 
 Button.defaultProps = {
