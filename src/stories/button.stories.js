@@ -28,23 +28,37 @@ export default {
     componentSubtitle: "Renders &Open Button Component",
     backgrounds: [
       { name: "default", value: "#fff", default: true },
-      { name: "twitter", value: "#00aced" },
-      { name: "facebook", value: "#3b5998" },
+      { name: "Turo green", value: "#59d388" },
+      { name: "&Open Peach", value: "#f7b69c" },
     ],
   },
 };
 
-export const Default = () => <Button {...knobs} {...actionsData} />;
+export const Default = () => (
+  <Button
+    {...knobs}
+    {...actionsData}
+    inverted={boolean("Inverted")}
+    disabled={boolean("Disabled")}
+    buttonText={text("Button Text") || "Default button"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+  />
+);
 
 Default.story = {
   decorators: [withKnobs],
-  parameters: {
-    backgrounds: [{ name: "red", value: "rgba(255, 0, 0)" }],
-  },
 };
 
 export const Turo = () => (
-  <Button {...actionsData} {...knobs} tenant={"turo"} />
+  <Button
+    {...actionsData}
+    {...knobs}
+    tenant={"turo"}
+    inverted={boolean("Inverted")}
+    disabled={boolean("Disabled")}
+    buttonText={text("Button Text") || "Turo button"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+  />
 );
 
 Turo.story = {
@@ -52,31 +66,73 @@ Turo.story = {
 };
 
 export const DefaultDisabled = () => (
-  <Button {...actionsData} {...knobs} buttonText="Disabled" disabled />
+  <Button
+    {...actionsData}
+    {...knobs}
+    inverted={boolean("Inverted")}
+    buttonText={text("Button Text") || "Disabled"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+    disabled
+  />
 );
+DefaultDisabled.story = {
+  decorators: [withKnobs],
+};
+
 export const DefaultInverted = () => (
-  <Button {...actionsData} {...knobs} inverted buttonText={`Click Me`} />
+  <Button
+    {...actionsData}
+    {...knobs}
+    inverted
+    disabled={boolean("Disabled")}
+    buttonText={text("Button Text") || "Click me"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+  />
 );
+DefaultInverted.story = {
+  decorators: [withKnobs],
+};
 
 export const DefaultAnimated = () => (
-  <Button {...actionsData} {...knobs} slide={true} />
+  <Button
+    {...knobs}
+    {...actionsData}
+    slide={true}
+    inverted={boolean("Inverted")}
+    disabled={boolean("Disabled")}
+    buttonText={text("Button Text") || "Click me"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+  />
 );
-
 DefaultAnimated.story = {
   decorators: [withKnobs],
 };
 
 export const TuroInverted = () => (
   <Button
-    {...actionsData}
     {...knobs}
-    inverted
+    {...actionsData}
+    inverted={true}
+    disabled={boolean("Disabled")}
+    buttonText={text("Button Text") || "Click me"}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
     tenant={"turo"}
-    buttonText={`Click Me`}
   />
 );
 
-export const BadAccessibility = () => <Button {...actionsData} {...knobs} />;
+TuroInverted.story = {
+  decorators: [withKnobs],
+};
+export const BadAccessibility = () => (
+  <Button
+    {...actionsData}
+    tenant={"bad"}
+    buttonText={text("Button Text") || "Submit"}
+    disabled={boolean("Disabled")}
+    inverted={boolean("Inverted")}
+    size={select("Size", ["small", "medium", "large", "xlarge"])}
+  />
+);
 
 BadAccessibility.story = {
   decorators: [withKnobs],
